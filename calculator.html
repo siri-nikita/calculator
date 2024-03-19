@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator by nikita</title>
+    <link rel="stylesheet" href="calcy.css">
+    <!-- <script src="C:\Users\Admin\Desktop\VSCODE FILES\app.js"></script> -->
+</head>
+<body>
+    <div class="calculator">
+        <div class="display">
+
+        <input type="text" id="inputbox" value="0" placeholder="0" disabled>
+    </div>
+    <div class="row">
+        <button type="button" class="opr">AC</button>
+        <button type="button"class="opr">DEL</button>
+        <button type="button"class="opr">%</button>
+        <button type="button"class="opr">/</button>
+    </div>    
+    <div class="row">
+        <button type="button">7</button>
+        <button type="button">8</button>
+        <button type="button">9</button>
+        <button type="button" class="opr">*</button>
+    </div>    
+    <div class="row">
+        <button type="button">4</button>
+        <button type="button">5</button>
+        <button type="button">6</button>
+        <button type="button" class="opr">+</button>
+    </div>    
+    <div class="row">
+        <button type="button">1</button>
+        <button type="button">2</button>
+        <button type="button">3</button>
+        <button type="button" class="opr">-</button>
+    </div>    
+    <div class="row">
+        <button type="button" id="plusMinus">&#xB1;</button>
+        <button type="button">0</button>
+        <button type="button">.</button>
+        <button type="button" id="eqBtn">=</button>
+    </div>    
+
+</div>
+<script >
+    let inputBox = document.getElementById('inputBox')
+let buttons = document.querySelectorAll('button')
+
+let string = '';
+
+buttons.forEach(element =>{
+    element.addEventListener('click', (b)=>{
+        if(b.target.innerText == '='){
+            string = String(eval(string))
+            inputBox.value = string;
+        }
+        else if (b.target.innerText == 'AC'){
+            string = ''
+            inputBox.value = string;
+        }
+        else if(b.target.innerText == 'DEL'){
+            string = string.substring(0,string.length-1)
+            inputBox.value = string;
+        }
+        else if(b.target.id == 'plusMinus'){
+            string = String-eval(string)
+            inputBox.value = string;
+        }
+        else{
+            string += b.target.innerText
+            inputBox.value = string;
+        }
+    })
+})
+</script>
+</body>
+</html>
